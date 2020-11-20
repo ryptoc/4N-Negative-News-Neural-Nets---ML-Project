@@ -4,7 +4,7 @@ import numpy as np
 # LOAD
 
 train_non_adverse = pd.read_csv("nam.csv")
-train_adverse = pd.read_csv("adverse_media_training.csv")
+train_adverse = pd.read_csv("am.csv")
 
 # PREPROCESS
 
