@@ -5,6 +5,7 @@ import numpy as np
 
 train_non_adverse = pd.read_csv("nam.csv")
 train_adverse = pd.read_csv("am.csv")
+train_random_additional = pd.read_csv("random.csv")
 
 # PREPROCESS
 
@@ -14,7 +15,7 @@ train_nam = train[train.label == "nam"]
 train_am = train[train.label == "am"]
 train_random = train[train.label == "random"]
 
-train_filtered = pd.concat([train_nam, train_am, train_random], ignore_index=True)
+train_filtered = pd.concat([train_nam, train_am, train_random, train_random_additional], ignore_index=True)
 train_filtered = train_filtered.dropna(subset=['title', 'article'])
 
 train_data = pd.DataFrame([])
