@@ -30,7 +30,7 @@ class AdverseMediaClassifierLogisticRegression():
         array of predicted labels (0 or 1)
         """
         X_test_texts = X_test[['title', 'article']].agg(' '.join, axis=1)
-        return predict_array(X_test_texts)
+        return self.predict_array(X_test_texts)
 
     def predict_array(self, X_test_texts):
         """Predict class
