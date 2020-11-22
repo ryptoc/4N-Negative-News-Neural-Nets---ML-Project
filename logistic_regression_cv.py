@@ -39,10 +39,6 @@ for train_index, test_index in kf.split(X):
     lr.fit(X_train_cv, y_train)
     predictions = lr.predict(X_test_cv)
     
-    #bagger = BaggingClassifier(base_estimator=LogisticRegression(verbose=1, solver='liblinear', C=10, penalty='l2',max_iter=1000), n_estimators=5, max_samples=0.8)
-    #bagger.fit(X_train_cv, y_train)
-    #predictions = bagger.predict(X_test_cv)
-    
     accuracy[i] = accuracy_score(y_val, predictions)
     precision[i] = precision_score(y_val, predictions)
     recall[i] = recall_score(y_val, predictions)
