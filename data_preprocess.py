@@ -19,7 +19,7 @@ train_filtered = pd.concat([train_nam, train_am, train_random, train_random_addi
 train_filtered = train_filtered.dropna(subset=['title', 'article'])
 
 train_data = pd.DataFrame([])
-train_data['text'] = train_filtered[['title', 'article']].agg(' '.join, axis=1)
+train_data['text'] = train_filtered[['title', 'article']].agg('.\n'.join, axis=1)
 train_data['label'] = train_filtered.label.map(dict(am=1, nam=0, random=2))
 
 # FUNCTIONS

@@ -4,7 +4,7 @@ from sklearn.linear_model import LogisticRegression
 class AdverseMediaClassifierLogisticRegression():
     def __init__(self):
         self.cv = TfidfVectorizer(strip_accents='ascii', lowercase=True, stop_words='english')
-        self.lr = LogisticRegression(verbose=1, solver='liblinear', random_state=0, C=15, penalty='l2', max_iter=1000)
+        self.lr = LogisticRegression(verbose=1, solver='liblinear', random_state=0, C=6, penalty='l2', max_iter=1000)
         
     def fit(self, X_train, y_train):
         """Fit data
