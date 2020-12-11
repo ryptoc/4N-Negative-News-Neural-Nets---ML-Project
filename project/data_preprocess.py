@@ -12,20 +12,9 @@ am_additional = pd.read_csv("data/am_additional.csv")
 
 # PREPROCESS
 
-train = pd.concat([train_non_adverse, train_adverse], ignore_index=True)
-
-train_nam = train[train.label == "nam"]
-train_am = train[train.label == "am"]
-train_random = train[train.label == "random"]
-
-train_filtered = pd.concat([train_nam, train_am, train_random, train_random_additional, am_additional], ignore_index=True)
+train_concat = pd.concat([train_non_adverse, train_adverse, train_random_additional, am_additional], ignore_index=True)
+train_filtered = train_concat[(train_concat.label == "nam") | (train_concat.label == "am") | (train_concat.label == "random")]
 train_filtered = train_filtered.dropna(subset=['title', 'article'])
-
-train_data = pd.DataFrame([])
-train_data['text'] = train_filtered[['title', 'article']].agg('.\n'.join, axis=1)
-train_data['label'] = train_filtered.label.map(dict(am=1, nam=0, random=2))
-
-train_data_title_and_paragraph = pd.DataFrame([])
 
 # FUNCTIONS
 
