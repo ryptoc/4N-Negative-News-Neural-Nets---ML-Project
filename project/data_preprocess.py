@@ -31,22 +31,6 @@ def get_n_sentences(n):
     train_data_sentences['label'] = train_filtered.label.map(dict(am=1, nam=0, random=2))
     
     return train_data_sentences.copy()
-        
-def getAm():
-    td = getData()
-    td = td[td['label'] == 1]
-    return td
-
-def getNam():
-    td = getData()
-    td = td[td['label'] == 0]
-    return td
-    
-def getRandom():
-    td = getData()
-    td = td[td['label'] == 2]
-    return td
-
 
 def getTrainData(include_random=False, random_as_2=False, shuffle=False, no_title=False, n_sentences=-1):
     td = None
