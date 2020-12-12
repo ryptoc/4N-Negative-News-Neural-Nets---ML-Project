@@ -9,6 +9,7 @@ train_non_adverse = pd.read_csv("data/nam.csv")
 train_adverse = pd.read_csv("data/am.csv")
 train_random_additional = pd.read_csv("data/random.csv")
 am_additional = pd.read_csv("data/am_additional.csv")
+test = pd.read_csv("data/test.csv", usecols=["title", "article", "label"])
 
 # PREPROCESS
 
@@ -55,7 +56,25 @@ def getTrainData(include_random=False, random_as_2=False, shuffle=False, no_titl
         td = td.sample(frac=1)
     
     return td.copy()
-        
+
+def getTestData(no_title=False, n_sentences=-1):
+    td = pd.DataFrame([])
+    if n_sentences >= 0:
+        td['text'] = test.article.apply(lambda a: " ".join(nltk.sent_tokenize(a)[0:n_sentences]))
+    else:
+        td['text'] = test.article
+    
+    td['label'] = test.label
+    
+    td = td.copy()
+    
+    if not no_title:
+        if n_sentences == 0:
+            td['text'] = test.title
+        else:
+            td['text'] = pd.DataFrame({ 'title': test.title, 'article': td.text }).agg('.\n'.join, axis=1)
+    
+    return td.copy()
 
 def getFullRowByIndex(idx):
     return train_filtered.loc[idx]
