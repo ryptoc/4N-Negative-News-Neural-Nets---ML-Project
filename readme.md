@@ -70,3 +70,7 @@ Folders `ensemble`, `roberta`, `logistic_regression` and `other_models` contain 
 
 
 Some notebooks were run in Google Colab and therefore cannot be run here. Such notebooks include respective warnings. Data referenced in the notebooks is identical to data in data folder 
+
+## Results
+
+![results](assets/Results.png)
