@@ -4,7 +4,7 @@ Authors:
 * Dan Pavlovič
 * Darya Pisetskaya
 
-Folder `ItDS_ProjectPlan` contins project plan for DS homework. All relevant code and data can be found in `project` folder. 
+Folder `ItDS_ProjectPlan` contains project plan for DS homework. All relevant code and data can be found in `project` folder. 
 
 
 ## Introduction
